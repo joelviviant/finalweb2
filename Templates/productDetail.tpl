@@ -35,13 +35,14 @@
         <div>
             <button  id="btnAdd" type="submit">Enviar comentario</button>
         </div>
-    </form>           
+    </form>   
+    
+
+    <div id="app">
+        {include file='Templates/vue/comment.tpl'}
+    </div>
+
+    <script src="./Js/comments.js"></script>        
 {/if}
 
-
-<div id="app">
-    {include file='Templates/vue/comment.tpl'}
-</div>
-
-<script src="./Js/comments.js"></script>
 {include file='Templates/footer.tpl'}

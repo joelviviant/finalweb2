@@ -13,7 +13,7 @@ class CategoryView{
 
     function showCat($productos, $categories,$id,$rol){
         $this->smarty->assign('titulo','Categoria');
-        $this->smarty->assign('categories', $categories);
+        $this->smarty->assign('category', $categories);
         $this->smarty->assign('productos', $productos);
         $this->smarty->assign('rol', $rol);
         $this->smarty->assign('id', $id);

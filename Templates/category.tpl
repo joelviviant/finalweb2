@@ -8,8 +8,8 @@
  {/if}
 
 
-<div id="categoria" data-id="{$categories->id}">
-<h1>Categoria:{$categories->nombre}</h1>
+<div id="categoria" data-id="{$category->id_categoria}">
+<h1>Categoria:{$category->nombre}</h1>
 </div>
 <h2>Productos:</h2> 
 <ul>
@@ -18,7 +18,6 @@
          <a href="viewProd/{$producto->id}">{$producto->nombre}</a>
          </li>
     {/foreach}
-    
 </ul>
 
 {if isset ($smarty.session.email)}
@@ -41,13 +40,15 @@
         <div>
             <button id="btnAddCat" type="submit">Enviar comentario</button>
         </div>
-    </form>           
+    </form> 
+
+    
+    <div id="app">
+        {include file='Templates/vue/comment.tpl'}
+    </div>
+
+    <script src="./Js/comments.js"></script>          
 {/if}
 
 
-<div id="app">
-    {include file='Templates/vue/comment.tpl'}
-</div>
-
-<script src="./Js/comments.js"></script>
 {include file='Templates/footer.tpl'}

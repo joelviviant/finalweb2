@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.0, created on 2022-03-15 16:52:52
+/* Smarty version 4.1.0, created on 2022-03-16 03:35:58
   from 'C:\xampp\htdocs\web2\Templates\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.0',
-  'unifunc' => 'content_6230b6546ddb50_03478652',
+  'unifunc' => 'content_62314d0e5a9571_63315430',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9c4e50093b60dd05336e05eb3e46e684b2e03133' => 
     array (
       0 => 'C:\\xampp\\htdocs\\web2\\Templates\\header.tpl',
-      1 => 1647359301,
+      1 => 1647398138,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6230b6546ddb50_03478652 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62314d0e5a9571_63315430 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,10 +33,18 @@ function content_6230b6546ddb50_03478652 (Smarty_Internal_Template $_smarty_tpl)
       <?php echo '<script'; ?>
  src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"><?php echo '</script'; ?>
 >
-      
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+      <link rel="stylesheet" href="./Css/style.css">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+
 </head>
 <body> 
 
+
          
-            <?php }
+             <?php }
 }

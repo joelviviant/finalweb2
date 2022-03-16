@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.0, created on 2022-03-14 21:03:56
+/* Smarty version 4.1.0, created on 2022-03-16 03:32:52
   from 'C:\xampp\htdocs\web2\Templates\product.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.0',
-  'unifunc' => 'content_622f9fac8779f4_71188558',
+  'unifunc' => 'content_62314c541f0470_34113135',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '418dcaa2938c55e13d836b2d81865e7f0ac50bbb' => 
     array (
       0 => 'C:\\xampp\\htdocs\\web2\\Templates\\product.tpl',
-      1 => 1647288235,
+      1 => 1647397951,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:Templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_622f9fac8779f4_71188558 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62314c541f0470_34113135 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender('file:Templates/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 <a href="/web2">Carrito</a>
@@ -35,84 +35,91 @@ if ((isset($_SESSION['email']))) {?>
 
  <?php }?>
 
-
-<h1><?php echo $_smarty_tpl->tpl_vars['titulo']->value;?>
+<div class="titulo">
+    <h1><?php echo $_smarty_tpl->tpl_vars['titulo']->value;?>
 </h1>
+</div>
 
 <?php if ((isset($_SESSION['email']))) {?>
+<div class="form-container">
     <form action="addProd" method="post">
-    <label>Producto</label>
-    <input type="text" name="nombre" id="nombre">
-    <label>Categorias</a></label>
-        <select name="categoria" id="categoria">
-            <?php
+    <div class="form-group form-producto">
+        <div id="producto">
+            <label>Producto</label>
+            <input class="form-control" type="text" name="nombre" id="nombre">
+        </div>
+        <div id="categoria">
+        <label>Categorias</a></label>
+            <select class="form-control" name="categoria" id="categoria">
+                <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['categorias']->value, 'categoria');
 $_smarty_tpl->tpl_vars['categoria']->do_else = true;
 if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['categoria']->value) {
 $_smarty_tpl->tpl_vars['categoria']->do_else = false;
 ?>
-                <option value="<?php echo $_smarty_tpl->tpl_vars['categoria']->value->id_categoria;?>
+                    <option value="<?php echo $_smarty_tpl->tpl_vars['categoria']->value->id_categoria;?>
 "><?php echo $_smarty_tpl->tpl_vars['categoria']->value->nombre;?>
 </option>   
-            <?php
+                <?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>                                                     
-        </select>
-    <input type="submit" id="submit" value="Agregar" name="submit">			
+            </select>
+        </div>
+        <div id="agregar">
+            <div class="boton-container">
+                <input type="submit" id="submit" value="Agregar" class="btn btn-primary" name="submit">
+            </div>
+        </div>
+    </div>		
     </form>
+</div>
 <?php }?>
 
-<table>
-    <tr>
-        <th><a href="producto">Productos</a></th>
-        <th><a href="categorias">Categorias</a></th>			
-    </tr>
-    <tr>
-        <td>
-            <ul>
-                <?php
+<div class="tabla-container">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th class="text-center"><a href="producto">Producto</a></th>
+            <th class="text-center"><a href="categorias">Categoria</a></th>
+            <?php if ((isset($_SESSION['email']))) {?>
+                <th></a></th>	
+            <?php }?>		
+            
+        </tr>
+        </thead>
+        <tbody>
+        
+            <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['productos']->value, 'producto');
 $_smarty_tpl->tpl_vars['producto']->do_else = true;
 if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['producto']->value) {
 $_smarty_tpl->tpl_vars['producto']->do_else = false;
 ?>
-                    <li>
-                        <a href="viewProd/<?php echo $_smarty_tpl->tpl_vars['producto']->value->id;?>
+                <tr>
+                    <td class="text-center"> <a href="viewProd/<?php echo $_smarty_tpl->tpl_vars['producto']->value->id;?>
 "><?php echo $_smarty_tpl->tpl_vars['producto']->value->nombre;?>
-</a>
-                    </li>
-                <?php
-}
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>                 
-            </ul>
-        </td>			
-        <td>
-            <ul>
-                <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['productos']->value, 'producto');
-$_smarty_tpl->tpl_vars['producto']->do_else = true;
-if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['producto']->value) {
-$_smarty_tpl->tpl_vars['producto']->do_else = false;
-?>
-                    <li>
-                        <a href="viewCat/<?php echo $_smarty_tpl->tpl_vars['producto']->value->id_categoria;?>
+</a>  </td>
+                    <td class="text-center"> <a href="viewCat/<?php echo $_smarty_tpl->tpl_vars['producto']->value->id_categoria;?>
 "><?php echo $_smarty_tpl->tpl_vars['producto']->value->categoria;?>
-</a> 
-                        <?php if ((isset($_SESSION['email']))) {?>
+</a></td>
+                    <?php if ((isset($_SESSION['email']))) {?>
+                        <td class="text-center"> 
                             <a href="deleteProd/<?php echo $_smarty_tpl->tpl_vars['producto']->value->id;?>
-">🗑️Borrar</a> 
+" class="material-icons text-decoration-none text-danger" >delete</a>
                             <a href="editProd/<?php echo $_smarty_tpl->tpl_vars['producto']->value->id;?>
-">Editar</a>
-                        <?php }?>
-                       
-</li>    
-                <?php
+" class="material-icons text-decoration-none text-warning">edit</a> 
+                        </td>
+                    <?php }?>
+                </tr>
+
+            <?php
 }
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
-            </ul>	
-        </td>
-     </tr>
-</table>
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>  
+            
+        
+        </tbody>
+    </table>
+</div>
 
 
 
