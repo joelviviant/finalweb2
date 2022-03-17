@@ -58,7 +58,7 @@ class ApiController{
       } else {
         return $this->view->response("El comentario $id no existe", 404);
     }
-  }else{
+    }else{
     $this->view->response("No tienes permisos para realizar esta acción", 401);
     }
   } 
@@ -73,7 +73,7 @@ class ApiController{
       } else {
         return $this->view->response("El comentario $id no existe", 404);
     }
-  }else{
+    }else{
     $this->view->response("No tienes permisos para realizar esta acción", 401);
     }
   }

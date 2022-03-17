@@ -6,25 +6,58 @@
 {if isset ($smarty.session.email)}
 <a href="logout">Logout</a>
  {/if}
-
-<h2>Categorias</h2>
+<div class="titulo">
+    <h1>Categorias</h1>
+</div>
 {if isset ($smarty.session.email)}
-     <form action="addCat" method="post">
-         <input type="text" name="nombre" id="nombre">
-         <input type="submit" id="submit" value="Agregar" name="submit">
+<div class="form-container">
+    <form action="addCat" method="post">
+        <div class="form-group form-categoria">
+            <div id="categoria-nombre">
+                <label>Nombre</label>  
+                <input type="text" class="form-control" name="nombre" id="nombre">
+            </div>
+            <div id="agregar-categoria">
+                <div class="boton-container">
+                    <input type="submit" class="btn btn-primary" id="submit" value="Agregar" name="submit">
+                </div>
+            </div>
+        </div>
     </form>
+</div>
 {/if}
-<h3>Lista de Categorias</h3>   
-    <ul>
+
+
+
+<div class="tabla-container-categorias">
+    <table class="table table-striped">
+     <thead>
+        <tr>
+            <th class="text-center" >Categoria</a></th>
+            {if isset ($smarty.session.email)}
+                <th></a></th>	
+            {/if}	
+        </tr>
+    </thead>  
+    <tbody> 
         {foreach from=$categorias item=categoria}
-            <li> 
-                <a href="viewCat/{$categoria->id_categoria}">{$categoria->nombre}</a>
-                {if isset ($smarty.session.email)}
-                    <a href="deleteCat/{$categoria->id_categoria}">🗑️Borrar</a>
-                     <a href="editCat/{$categoria->id_categoria}">Editar</a>
-                {/if}
-            </li>
+            <tr>
+                <td class="text-center">
+                    <a href="viewCat/{$categoria->id_categoria}">{$categoria->nombre}</a>
+                </td>
+                    {if isset ($smarty.session.email)}
+                    <td class="text-center">
+                        <a href="deleteCat/{$categoria->id_categoria}" class="material-icons text-decoration-none text-danger" >delete</a>
+                        <a href="editCat/{$categoria->id_categoria}" class="material-icons text-decoration-none text-warning">edit</a> 
+                    </td>
+                    {/if}
+             <tr>
         {/foreach}
-</ul>
+     </tbody>
+    </table>
+</div>
+
+
+
 
 {include file='Templates/footer.tpl'}

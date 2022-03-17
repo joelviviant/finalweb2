@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.0, created on 2022-03-16 03:32:52
+/* Smarty version 4.1.0, created on 2022-03-16 17:45:56
   from 'C:\xampp\htdocs\web2\Templates\product.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.0',
-  'unifunc' => 'content_62314c541f0470_34113135',
+  'unifunc' => 'content_62321444678e82_56363663',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '418dcaa2938c55e13d836b2d81865e7f0ac50bbb' => 
     array (
       0 => 'C:\\xampp\\htdocs\\web2\\Templates\\product.tpl',
-      1 => 1647397951,
+      1 => 1647449122,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:Templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_62314c541f0470_34113135 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62321444678e82_56363663 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender('file:Templates/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 <a href="/web2">Carrito</a>

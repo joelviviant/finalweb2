@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-03-2022 a las 23:17:30
+-- Tiempo de generación: 17-03-2022 a las 02:56:39
 -- Versión del servidor: 10.4.19-MariaDB
 -- Versión de PHP: 8.0.6
 
@@ -61,10 +61,30 @@ CREATE TABLE `comments` (
 --
 
 INSERT INTO `comments` (`id`, `id_producto`, `id_user`, `score`, `comentario`) VALUES
-(38, 94, 1, 2, 'efefefef'),
-(39, 94, 1, 2, '4353'),
-(40, 95, 1, 2, 'gffdgfdgfdgfdfgd'),
-(41, 94, 10, 2, 'fdsdsf');
+(63, 103, 1, 3, 'Comprar 2 Kg'),
+(64, 95, 1, 5, 'Carne picada'),
+(65, 97, 1, 1, 'Antitranspirante');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `commentscategory`
+--
+
+CREATE TABLE `commentscategory` (
+  `id` int(15) NOT NULL,
+  `id_categoria` int(15) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `score` int(15) NOT NULL,
+  `comentario` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `commentscategory`
+--
+
+INSERT INTO `commentscategory` (`id`, `id_categoria`, `id_user`, `score`, `comentario`) VALUES
+(36, 3, 1, 4, 'Ir a la carniceria de Tito');
 
 -- --------------------------------------------------------
 
@@ -83,10 +103,10 @@ CREATE TABLE `producto` (
 --
 
 INSERT INTO `producto` (`id`, `nombre`, `categoria`) VALUES
-(94, 'azucar', 2),
 (95, 'carne', 3),
 (96, 'detergente', 15),
-(97, 'desodorantes', 4);
+(97, 'desodorantes', 4),
+(103, 'azucar', 2);
 
 -- --------------------------------------------------------
 
@@ -107,7 +127,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `email`, `password`, `rol`) VALUES
 (1, 'web2@gmail.com', '$2y$10$QI1Q8qANpL7Jc/7b36CVJOi8nXdjnurKJ7eoErRCvhiv3W2soBZU6', 0),
-(10, 'joel@gmail.com', '$2y$10$.TlBwEOP.sFqkaiycCwv6.I8LkQ5pKyLmq/nxzD1d2sQqaHMXphZm', 1);
+(10, 'joel@gmail.com', '$2y$10$.TlBwEOP.sFqkaiycCwv6.I8LkQ5pKyLmq/nxzD1d2sQqaHMXphZm', 1),
+(12, 'web2@gmail.com', '$2y$10$DfIovynM/karLyn6.9F.ouxmtzroslhQc7yrzDe316VUlPcKB6Ihm', 1);
 
 --
 -- Índices para tablas volcadas
@@ -126,6 +147,14 @@ ALTER TABLE `categoria`
 ALTER TABLE `comments`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_producto` (`id_producto`) USING BTREE,
+  ADD KEY `id_user` (`id_user`) USING BTREE;
+
+--
+-- Indices de la tabla `commentscategory`
+--
+ALTER TABLE `commentscategory`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_categoria` (`id_categoria`) USING BTREE,
   ADD KEY `id_user` (`id_user`) USING BTREE;
 
 --
@@ -149,25 +178,31 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de la tabla `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
+
+--
+-- AUTO_INCREMENT de la tabla `commentscategory`
+--
+ALTER TABLE `commentscategory`
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=104;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Restricciones para tablas volcadas
@@ -179,6 +214,13 @@ ALTER TABLE `users`
 ALTER TABLE `comments`
   ADD CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`id_producto`) REFERENCES `producto` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `comments_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
+--
+-- Filtros para la tabla `commentscategory`
+--
+ALTER TABLE `commentscategory`
+  ADD CONSTRAINT `commentscategory_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `commentscategory_ibfk_2` FOREIGN KEY (`id_categoria`) REFERENCES `categoria` (`id_categoria`) ON DELETE CASCADE;
 
 --
 -- Filtros para la tabla `producto`

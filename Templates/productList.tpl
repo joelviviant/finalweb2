@@ -7,12 +7,13 @@
 <a href="logout">Logout</a>
  {/if}
 
- 
+<div class="titulo">
 <h1>{$titulo}</h1>
+</div>
 
-    <ul>
+    <ul class="list-group w-25 m-auto">
         {foreach from=$productos item=producto}
-            <li>
+            <li class="list-group-item">
                 <a href="viewProd/{$producto->id}">{$producto->nombre}</a>
             </li>     
         {/foreach}                     

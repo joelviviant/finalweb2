@@ -57,7 +57,7 @@ class CategoryController{
         if($_SESSION['rol']==0){
         $categoria = $this->model->getCatById($id);
         $this->view->showEditCat($categoria);
-    }else{
+     }else{
         $this->productView->showErrorLocation();
     }  
 }

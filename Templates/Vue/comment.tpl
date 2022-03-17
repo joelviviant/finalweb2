@@ -1,5 +1,5 @@
 {literal}
-    <div class="card w-25 m-3 " v-for="comment in comments">
+    <div class="card w-25 m-auto" v-for="comment in comments">
             <div class="card-body">
                 <div class="d-flex">
                     <p v-for="item in Number(comment.score)" class="material-icons text-warning">star</p>

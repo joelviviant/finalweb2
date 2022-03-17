@@ -7,13 +7,14 @@
 <a href="logout">Logout</a>
  {/if}
 
-
+<div class="titulo">
     <h1>Lista de Usuarios</h1>
-        <table>
+</div>    
+        <table class="table table-striped w-50 m-auto">
             <thead>
                 <tr>
-                    <th>Email</th>
-                    <th>Rol</th>
+                    <th class="text-center">Email</th>
+                    <th class="text-center">Rol</th>
                     <th></th>
                     <th></th>
                 </tr>
@@ -21,14 +22,14 @@
             <tbody>
                 {foreach from=$users item=$user}
                 <tr>
-                    <td>{$user->email}</td> 
+                    <td class="text-center">{$user->email}</td> 
                     {if $user->rol == 0}
-                        <td>Administrador</td>
+                        <td class="text-center">Administrador</td>
                     {elseif $user->rol == 1}
-                         <td>Usuario</td>
+                         <td class="text-center">Usuario</td>
                     {/if}
-                    <td><a href="updateUser/{$user->id}"><button>Cambiar rol</button></a></td>
-                    <td><a href="deleteUser/{$user->id}"><button>Borrar</button></a></td>
+                    <td class="text-center"><a href="updateUser/{$user->id}"><button class="btn btn-secondary" >Cambiar rol</button></a></td>
+                    <td class="text-center"><a href="deleteUser/{$user->id}"><button class="btn btn-danger" >Eliminar</button></a></td>
                     
                 {/foreach}    
                 </tr>

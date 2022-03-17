@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.0, created on 2022-03-14 21:03:57
+/* Smarty version 4.1.0, created on 2022-03-16 22:52:34
   from 'C:\xampp\htdocs\web2\Templates\users.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.0',
-  'unifunc' => 'content_622f9fadb59940_45022808',
+  'unifunc' => 'content_62325c22c3e060_91412085',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'bf26f1df4d8090c3c9c9947c5103292fd0a63695' => 
     array (
       0 => 'C:\\xampp\\htdocs\\web2\\Templates\\users.tpl',
-      1 => 1647288128,
+      1 => 1647467554,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:Templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_622f9fadb59940_45022808 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62325c22c3e060_91412085 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender('file:Templates/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 <a href="/web2">Carrito</a>
@@ -33,13 +33,14 @@ if ((isset($_SESSION['email']))) {?>
 <a href="logout">Logout</a>
  <?php }?>
 
-
+<div class="titulo">
     <h1>Lista de Usuarios</h1>
-        <table>
+</div>    
+        <table class="table table-striped w-50 m-auto">
             <thead>
                 <tr>
-                    <th>Email</th>
-                    <th>Rol</th>
+                    <th class="text-center">Email</th>
+                    <th class="text-center">Rol</th>
                     <th></th>
                     <th></th>
                 </tr>
@@ -52,17 +53,17 @@ if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['user']->value) {
 $_smarty_tpl->tpl_vars['user']->do_else = false;
 ?>
                 <tr>
-                    <td><?php echo $_smarty_tpl->tpl_vars['user']->value->email;?>
+                    <td class="text-center"><?php echo $_smarty_tpl->tpl_vars['user']->value->email;?>
 </td> 
                     <?php if ($_smarty_tpl->tpl_vars['user']->value->rol == 0) {?>
-                        <td>Administrador</td>
+                        <td class="text-center">Administrador</td>
                     <?php } elseif ($_smarty_tpl->tpl_vars['user']->value->rol == 1) {?>
-                         <td>Usuario</td>
+                         <td class="text-center">Usuario</td>
                     <?php }?>
-                    <td><a href="updateUser/<?php echo $_smarty_tpl->tpl_vars['user']->value->id;?>
-"><button>Cambiar rol</button></a></td>
-                    <td><a href="deleteUser/<?php echo $_smarty_tpl->tpl_vars['user']->value->id;?>
-"><button>Borrar</button></a></td>
+                    <td class="text-center"><a href="updateUser/<?php echo $_smarty_tpl->tpl_vars['user']->value->id;?>
+"><button class="btn btn-secondary" >Cambiar rol</button></a></td>
+                    <td class="text-center"><a href="deleteUser/<?php echo $_smarty_tpl->tpl_vars['user']->value->id;?>
+"><button class="btn btn-danger" >Eliminar</button></a></td>
                     
                 <?php
 }

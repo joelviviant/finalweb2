@@ -2,13 +2,14 @@
 
 <a href="/web2">Carrito</a>
 <a href="register">Registrarse</a>
+<div class="titulo">
+    <h1>{$titulo}</h1>
+</div>
 
-<h1>{$titulo}</h1>
-
-<form action="verify" method="post">
-    <input placeholder="email" type="text" name="email" id="email" required>
-    <input placeholder="password" type="password" name="password" id="password" required>
-    <input type="submit" id="submit" value="Login" name="submit">			
+<form class="w-25 m-auto d-flex flex-column" action="verify" method="post">
+    <input class="form-control mb-2" placeholder="email" type="text" name="email" id="email" required>
+    <input class="form-control mb-2" placeholder="password" type="password" name="password" id="password" required>
+    <input class="btn btn-primary mb-2" type="submit" id="submit" value="Login" name="submit">			
 </form>
 
 <h4>{$error}</h4>
